@@ -4,12 +4,9 @@ public class Rope
 {
 
 	double[] l;
-	double alfa;
 	double l0;
 	double r;
 	Object m1,m2;
-	static boolean secoperationx=false;
-	static boolean secoperationy=false;
 	Rope(Object mm1, Object mm2 )
 	{
 		l=new double[3];
@@ -24,7 +21,7 @@ public class Rope
 		//System.out.println(Math.toRadians(180));
 		//System.out.println("l="+l);
 	}
-	void calculateAlpha(Object mm1,Object mm2)
+	/*void calculateAlpha(Object mm1,Object mm2)
 	{
 		
 		//r=Math.sqrt(Math.pow((mm2.x-mm1.x), 2)+Math.pow((mm2.y-mm1.y),2));
@@ -61,48 +58,21 @@ public class Rope
 		}*/
 
 		
-	}
-	double calculateDeltax(Object mm1,Object mm2)//oblicza rozciagniecie sprezyny w kierunku x
+	}*/
+	
+	double calculate
+	
+	double[3] calculateDelta(Object mm1,Object mm2)//oblicza rozciagniecie sprezyny we wszystkich kierunkach
 	{
 		
-		if(!secoperationx)
-		{
-			secoperationx=true;
-			//l[0]=l0*(mm2.x-mm1.x)/r;
-			l[0]=l0*(Math.cos(alfa));
-			
-
-		}
-		//System.out.println("cosfi: "+l[0]/l0);
-
-			
-		
-		return (l[0]-Math.abs(mm1.x-mm2.x));
+		double[] deltal = new double[3];
+		double l = Math.sqrt(Math.pow(l[0],2)+Math.pow(l[1],2)+Math.pow(l[2],2));
+		double div = (l-l0)/l;
+		deltal[0] = l[0]*div;
+		deltal[1] = l[1]*div;
+		deltal[2] = l[2]*div;
+		return deltal[];
 		
 	}
-	double calculateDeltay(Object mm1,Object mm2)//oblicza rociagniecie sprezyzny w kierunku y
-	{
-		if(!secoperationy)
-		{
-			secoperationy=true;
-			//System.out.println("alfay: "+ alfa);
-			//l[1]=l0*(mm2.y-mm1.y)/r;
-			l[1]=l0*(Math.sin(alfa));
-			
-				
-				
-		}
-		//System.out.println("sinfi: "+l[1]/l0);
-		//System.out.println("jedynka tryg: "+(Math.pow(l[0]/l0,2)+Math.pow(l[1]/l0, 2)));
-		
-		return (l[1]-Math.abs(mm1.y-mm2.y));
-		
-	}
-	double calculateDeltaz(Object mm1,Object mm2)
-	{
-		double previouslz=l[2];
-		l[2]=Math.sqrt(Math.pow(l0,2)-Math.pow(l[0],2)-Math.pow(l[1],2));
-		return (previouslz-Math.abs(mm1.z-mm2.z));
-		
-	}
+	
 }
